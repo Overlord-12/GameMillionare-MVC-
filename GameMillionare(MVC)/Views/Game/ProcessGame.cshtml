@@ -1,0 +1,39 @@
+﻿@model IEnumerable<GameMillionare_MVC_.Models.Question>
+@{
+    ViewBag.Title = "ProcessGame";
+}
+
+<h2>ProcessGame</h2>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+</head>
+<body>
+    <div style="margin:0 auto; width:200px;">
+        <table>
+
+            @foreach (var questions in Model)
+            {
+                <tr></tr>
+                foreach (var answers in questions.Answers)
+                {
+                    <tr>
+                        <td><button value="@answers.Id">@answers.Id</button></td>
+                        <td><button value="@answers.Id">@answers.Id</button></td>
+                    </tr>
+                    <tr>
+                        <td><button value="@answers.Id">@answers.Id</button></td>
+                        <td><button value="@answers.Id">@answers.Id</button></td>
+                    </tr>
+                }
+            }
+
+
+
+
+        </table>
+    </div>
+
+</body>
+</html>
+
