@@ -7,9 +7,13 @@ namespace GameMillionare_MVC_.Models
 {
     public class Question
     {
-        public string QuestionText { get; set; }
+        public string Text { get; set; }
         public int Id { get; set; }
 
-        public IEnumerable<Answer> Answers { get; set; }
+        public ICollection<Answer> Answers { get; set; }
+
+        public Question(){
+            Answers = new List<Answer>();
+        }
     }
 }

@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Data.Entity;
 
 namespace GameMillionare_MVC_.Controllers
 {
     public class GameController : Controller
     {
-        QuestionContext db = new QuestionContext();
+        QuestionContext qc = new QuestionContext();
         // GET: Game
         public ActionResult Index()
          {
@@ -20,14 +21,16 @@ namespace GameMillionare_MVC_.Controllers
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            qc.Dispose();
             base.Dispose(disposing);
         }
         public ActionResult ProcessGame(string startGame)
         {
-            IEnumerable<Question> li = db.Questions;
-            return View(li);
+            IEnumerable<Answer> ques = qc.Answers.Include(p => p.Question).Take(1);
+            return View(ques);
         }
+
+       
     }
  
 }

@@ -10,11 +10,5 @@ namespace GameMillionare_MVC_.Models
     {
         public DbSet<Answer> Answers { get; set; }
         public DbSet<Question> Questions { get; set; }
-
-        public QuestionContext() : base("QuestionContext")
-        {
-
-        }
-
     }
 }
