@@ -3,14 +3,16 @@
 @{
     ViewBag.Title = "ProcessGame";
 }
+<asp:ScriptManager ID="smMain" runat="server" EnablePageMethods="true" />
 <script>
-    var test = @ViewBag.HelpInfo
-    var score = @ViewBag.Score
+        var test = @ViewBag.HelpInfo
+        var score = @ViewBag.Score
 
-        function hide() {
+            function hide() {
+            test = 1;
             var btn = document.getElementsByClassName('btn');
+            document.querySelector(".mainbtn").className = "hide";
              /*   document.querySelector('.btn').className = 'hide'*/
-            var checkhide = 0;
             for (var button of btn) {
                 if (button.value != 1) button.className = 'hide'
             }
@@ -18,12 +20,19 @@
             //    if (button.Correct != 1) button.className = 'hide'
             //}
 
-    }
-    function check() {
-        document.querySelector(".score").textContent ="Ваш счет"+ score
-        if (test === 0) return;
-        else if (test === 1) document.querySelector(".mainbtn").className = "hide";
-    }
+            }
+            function checkHelp(id) {
+                if (test === 1 || document.getElementById(id).value === 1) document.getElementById(id).value = "true";
+                else if (test === 1 || document.getElementById(id).value === 0) document.getElementById(id).value = "false";
+            }
+            function check() {
+                document.querySelector(".score").textContent ="Ваш счет"+ score
+                if (test === 0) return;
+                else if (test === 1) {
+                    document.querySelector(".mainbtn").className = "hide";
+            
+                }
+            }
 </script>
 <style>
     .hide {
@@ -32,10 +41,10 @@
 </style>
 <body onload="check()">
 
-    
-        <button onclick="hide()" name="helpbt" class="mainbtn" title="Убрать 2 ответа">HELP</button>
-        
-    
+
+    <button onclick="hide()" name="helpbt" class="mainbtn" title="Убрать 2 ответа">HELP</button>
+
+
     <div>
         <pr class="score">
             Ваш счет
@@ -52,7 +61,7 @@
             foreach (var answer in Model)
             {
 
-                <button value="@answer.Correct" id="@answer.Id" class="btn" name="startGame">
+                <button value="@answer.Correct" onclick="checkHelp('@answer.Id')" id="@answer.Id" class="btn" name="startGame">
                     @answer.Text
                 </button>
             }

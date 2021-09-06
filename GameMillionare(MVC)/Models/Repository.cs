@@ -13,7 +13,7 @@ namespace GameMillionare_MVC_.Models
         public static List<Answer> Init()
         {
             ques = qc.Answers.Include(p => p.Question).ToList();
-            //RandomList();
+            RandomList();
             var result = ques.Take(4).ToList();
             Remove(result);
             return result;
@@ -32,14 +32,10 @@ namespace GameMillionare_MVC_.Models
             Remove(result);
             return result;
         }
-        //public static void RandomList()
-        //{
-        //    Random random = new Random();
-        //    for (int i = 0; i < ques.Count; i++)
-        //    {
-               
-        //    }
-        //}
+        public static void RandomList()
+        {
+            ques.OrderBy(i => new Random().Next()).ToList();
+        }
 
     }
 }

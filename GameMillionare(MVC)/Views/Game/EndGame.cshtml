@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "EndGame";
+}
+<h1>Вы закончили игру</h1>
+
+<h2>Ваш счет = @ViewBag.Score</h2>
+<div style="margin:0 auto; width:300px;">
+    @using (Html.BeginForm("/EndGame", "Game", FormMethod.Get))
+    {
+        <div style="text-align:center">
+            <p>Начать заново?</p>
+            <button value="Yes" name="NextGame">Да</button>
+
+        </div>
+    }
+</div>

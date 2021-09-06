@@ -20,8 +20,14 @@ namespace GameMillionare_MVC_.Controllers
             return View();
         }
         [HttpGet]
+
+        public ActionResult EndGame()
+        {
+            return View("Index");
+        }
         public ActionResult ProcessGame(string startGame)
         {
+
             ViewBag.Score = check;
             ViewBag.HelpInfo = HelpButton;
             if(startGame == "checked")
@@ -30,35 +36,50 @@ namespace GameMillionare_MVC_.Controllers
             }
             if (startGame == "10" || startGame == "15")
             {
+                check = 100;
                 ViewBag.HelpInfo = 0;
                 ViewBag.Score = 100;
                 return View(Repository.Init());
             }
             else
             {
+                var c = Repository.NextQuest();
+                if (c.Count == 0)
+                {
+                    return View("EndGame");
+                }
+
+                if (startGame == "false")
+                {
+                    ViewBag.HelpInfo = 1;
+                    ViewBag.Score = check;
+                    
+                    return View(c);
+                }
+                if(startGame == "true")
+                {
+                    ViewBag.HelpInfo = 1;
+                    check += 100;
+                    ViewBag.Score = check;
+                    return View(c);
+                }
                 if (startGame == "1")
                 {
                     check += 100;
                     ViewBag.Score = check;
-                    return View(Repository.NextQuest());
+                    return View(c);
                 }
                 else
                 {
                     ViewBag.Score = check;
-                    return View(Repository.NextQuest());
+                    return View(c);
                 }
                
             }
 
         }
-        public void GetData()
-        {
-            check = 1;
-            ViewBag.Score = check;
 
-        }
-
-
+        
     }
 
 }
