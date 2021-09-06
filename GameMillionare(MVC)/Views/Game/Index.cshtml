@@ -10,7 +10,7 @@
     <h2 style="text-align:center">Game</h2>
     <h2 style="text-align:center">Начните игру</h2>
     <div style="margin:0 auto; width:300px;">
-        @using (Html.BeginForm("/ProcessGame", "Game", FormMethod.Post))
+        @using (Html.BeginForm("/ProcessGame", "Game", FormMethod.Get))
         {
             <div style="text-align:center">
                 <button value="15" name="startGame">15 Вопросов</button>

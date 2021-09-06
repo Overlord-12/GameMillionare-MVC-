@@ -135,6 +135,7 @@
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Question.cs" />
     <Compile Include="Models\QuestionContext.cs" />
+    <Compile Include="Models\Repository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -180,7 +181,9 @@
     <Content Include="Views\Game\Index.cshtml" />
     <Content Include="Views\Game\ProcessGame.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Process\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

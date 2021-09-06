@@ -1,25 +1,65 @@
-﻿@model IEnumerable<GameMillionare_MVC_.Models.Question>
+﻿@model IEnumerable<GameMillionare_MVC_.Models.Answer>
 
 @{
     ViewBag.Title = "ProcessGame";
 }
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
+<script>
+    var test = @ViewBag.HelpInfo
+    var score = @ViewBag.Score
 
-    @foreach (var answer in Model) {
+        function hide() {
+            var btn = document.getElementsByClassName('btn');
+             /*   document.querySelector('.btn').className = 'hide'*/
+            var checkhide = 0;
+            for (var button of btn) {
+                if (button.value != 1) button.className = 'hide'
+            }
+            //for (var button in btn) {
+            //    if (button.Correct != 1) button.className = 'hide'
+            //}
 
-                <tr>
-                    @answer.Question.Text
-                </tr>
+    }
+    function check() {
+        document.querySelector(".score").textContent ="Ваш счет"+ score
+        if (test === 0) return;
+        else if (test === 1) document.querySelector(".mainbtn").className = "hide";
+    }
+</script>
+<style>
+    .hide {
+        display: none;
+    }
+</style>
+<body onload="check()">
 
-        foreach(var sad in answer)
+    
+        <button onclick="hide()" name="helpbt" class="mainbtn" title="Убрать 2 ответа">HELP</button>
+        
+    
+    <div>
+        <pr class="score">
+            Ваш счет
+        </pr>
+    </div>
+    <div class="divMain">
+        @foreach (var question in Model)
         {
-                        <tr>@sad.</tr>
+            <pr>@question.Question.Text</pr>
+            break;
         }
+        @using (Html.BeginForm("/ProcessGame", "Game", FormMethod.Get))
+        {
+            foreach (var answer in Model)
+            {
+
+                <button value="@answer.Correct" id="@answer.Id" class="btn" name="startGame">
+                    @answer.Text
+                </button>
+            }
+        }
+    </div>
 
 
-}
+</body>
 
-</table>
+

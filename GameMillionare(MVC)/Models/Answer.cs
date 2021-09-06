@@ -12,5 +12,6 @@ namespace GameMillionare_MVC_.Models
         public int Id { get; set; }
         public int Question_id { get; set; }
         public Question Question { get; set; }
+
     }
 }
