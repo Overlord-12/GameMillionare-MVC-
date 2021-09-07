@@ -34,8 +34,13 @@ namespace GameMillionare_MVC_.Models
         }
         public static void RandomList()
         {
-            var test = ques.Select(i => new { I = i, sort = Guid.NewGuid() }).OrderBy(i => i.sort).Select(i => i.I);
-            Console.WriteLine("dsd");
+            Random RND = new Random();
+            //for (int i = 0; i < ques.Count; i++)
+            //{
+            //    var tmp = ques[0];
+            //    ques.RemoveAt(0);
+            //    ques.Insert(RND.Next(ques.Count), tmp);
+            //}
         }
 
     }

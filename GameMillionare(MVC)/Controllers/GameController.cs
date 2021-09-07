@@ -38,7 +38,7 @@ namespace GameMillionare_MVC_.Controllers
             {
                 check = 100;
                 ViewBag.HelpInfo = 0;
-                ViewBag.Score = 100;
+                ViewBag.Score = check;
                 return View(Service.Init(Convert.ToInt32(startGame)));
             }
             else
