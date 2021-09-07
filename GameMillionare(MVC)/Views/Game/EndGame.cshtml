@@ -2,16 +2,24 @@
 @{
     ViewBag.Title = "EndGame";
 }
-<h1>Вы закончили игру</h1>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title></title>
+    <link href="@Url.Content("~/Content/MyStile.css")" rel="stylesheet" type="text/css" />
+</head>
+<body class="main-div">
+    <h1 class="main-text">Вы закончили игру</h1>
+    <h2 class="main-text">Ваш счет @ViewBag.Score баксов</h2>
+    <div style="margin:0 auto; width:300px;">
+        @using (Html.BeginForm("/EndGame", "Game", FormMethod.Get))
+        {
+            <div style="text-align:center">
+                <p class="main-text">Начать заново?</p>
+                <button class="button-answer" value="Yes" name="NextGame">Да</button>
 
-<h2>Ваш счет = @ViewBag.Score</h2>
-<div style="margin:0 auto; width:300px;">
-    @using (Html.BeginForm("/EndGame", "Game", FormMethod.Get))
-    {
-        <div style="text-align:center">
-            <p>Начать заново?</p>
-            <button value="Yes" name="NextGame">Да</button>
+            </div>
+        }
+    </div>
+</body>
+</html>
 
-        </div>
-    }
-</div>

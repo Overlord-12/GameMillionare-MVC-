@@ -6,13 +6,13 @@ using System.Data.Entity;
 
 namespace GameMillionare_MVC_.Models
 {
-    public class Repository
+    public class Service
     {
         static QuestionContext  qc = new QuestionContext();
         public static List<Answer> ques;
-        public static List<Answer> Init()
+        public static List<Answer> Init(int val)
         {
-            ques = qc.Answers.Include(p => p.Question).ToList();
+            ques = qc.Answers.Include(p => p.Question).Take(val * 4).ToList();
             RandomList();
             var result = ques.Take(4).ToList();
             Remove(result);
@@ -34,7 +34,8 @@ namespace GameMillionare_MVC_.Models
         }
         public static void RandomList()
         {
-            ques.OrderBy(i => new Random().Next()).ToList();
+            var test = ques.Select(i => new { I = i, sort = Guid.NewGuid() }).OrderBy(i => i.sort).Select(i => i.I);
+            Console.WriteLine("dsd");
         }
 
     }

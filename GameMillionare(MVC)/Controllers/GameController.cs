@@ -39,11 +39,11 @@ namespace GameMillionare_MVC_.Controllers
                 check = 100;
                 ViewBag.HelpInfo = 0;
                 ViewBag.Score = 100;
-                return View(Repository.Init());
+                return View(Service.Init(Convert.ToInt32(startGame)));
             }
             else
             {
-                var c = Repository.NextQuest();
+                var c = Service.NextQuest();
                 if (c.Count == 0)
                 {
                     return View("EndGame");

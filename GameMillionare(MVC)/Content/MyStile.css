@@ -1,0 +1,76 @@
+﻿.button-start {
+    width: 100px;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+}
+
+.main-div {
+    background-color: black;
+    height: 1000px;
+}
+
+.main-text {
+    color: white
+}
+
+.bottom-div {
+    text-align: center;
+    margin: 0 auto;
+    width: 300px;
+    vertical-align: central;
+    padding-top: 20%;
+}
+
+.score {
+    color: #ffffff;
+    font-family: ‘Raleway’,sans-serif;
+    font-size: 62px;
+    font-weight: 800;
+    line-height: 72px;
+    margin: 0 0 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.bbotre {
+    font-size: 14px;
+    text-decoration: none;
+    cursor: pointer;
+    display: block;
+    width: 90px;
+    font-weight: bold;
+    margin: 20px auto;
+    text-align: center;
+    padding: 1px 5px;
+    color: #717171;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+    -moz-box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.2), inset 0 0 6px 0 rgba(255, 255, 255, 0.3), 0 1px 2px rgba(0, 0, 0, 0.4);
+    background: #f6f6f6;
+    background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#d4d4d4));
+    background: -webkit-linear-gradient(#f6f6f6, #d4d4d4);
+    background-image: -moz-linear-gradient(top, #f6f6f6, #d4d4d4);
+    background-image: -moz-gradient(top, #f6f6f6, #d4d4d4);
+    border: 1px solid #a1a1a1;
+}
+
+    .bbotre:hover {
+        background: #f6f6f6;
+        background: -webkit-gradient(linear, left top, left bottom, from(#f6f6f6), to(#ececec));
+        background: -webkit-linear-gradient(#f6f6f6, #ececec);
+        background-image: -moz-linear-gradient(top, #f6f6f6, #ececec);
+        background-image: -moz-gradient(top, #f6f6f6, #ececec);
+    }
+
+.button-answer {
+    width: 100%;
+    border: 2px solid black;
+    background-color: orange;
+    color: white;
+    border-radius: 10px;
+}

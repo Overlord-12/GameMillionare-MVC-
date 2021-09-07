@@ -3,34 +3,35 @@
 @{
     ViewBag.Title = "ProcessGame";
 }
-<asp:ScriptManager ID="smMain" runat="server" EnablePageMethods="true" />
 <script>
         var test = @ViewBag.HelpInfo
         var score = @ViewBag.Score
 
             function hide() {
             test = 1;
+            var check = 0;
             var btn = document.getElementsByClassName('btn');
             document.querySelector(".mainbtn").className = "hide";
-             /*   document.querySelector('.btn').className = 'hide'*/
-            for (var button of btn) {
-                if (button.value != 1) button.className = 'hide'
-            }
-            //for (var button in btn) {
-            //    if (button.Correct != 1) button.className = 'hide'
-            //}
-
+                while (check < 2) {
+                    for (var button of btn) {
+                        var rand = Math.ceil(Math.random() * 3);
+                        if (button.value != 1 && rand === 2) {
+                            check++;
+                            button.className = 'hide'
+                        }
+                    }  
+                }
             }
             function checkHelp(id) {
                 if (test === 1 || document.getElementById(id).value === 1) document.getElementById(id).value = "true";
                 else if (test === 1 || document.getElementById(id).value === 0) document.getElementById(id).value = "false";
             }
             function check() {
-                document.querySelector(".score").textContent ="Ваш счет"+ score
+                document.querySelector(".score").textContent ="Ваш счет "+ score
                 if (test === 0) return;
                 else if (test === 1) {
                     document.querySelector(".mainbtn").className = "hide";
-            
+
                 }
             }
 </script>
@@ -39,29 +40,30 @@
         display: none;
     }
 </style>
-<body onload="check()">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Кто хочет стать миллионером?</title>
+    <link href="@Url.Content("~/Content/MyStile.css")" rel="stylesheet" type="text/css" />
+</head>
 
-
-    <button onclick="hide()" name="helpbt" class="mainbtn" title="Убрать 2 ответа">HELP</button>
-
-
+<body class="main-div" onload="check()">
+    <button onclick="hide()" name="helpbt" class="mainbtn bbotre" title="Убрать 2 ответа">HELP</button>
     <div>
-        <pr class="score">
+        <pr class="score main-text">
             Ваш счет
         </pr>
     </div>
-    <div class="divMain">
+    <div class="bottom-div">
         @foreach (var question in Model)
         {
-            <pr>@question.Question.Text</pr>
+            <pr class="main-text">@question.Question.Text</pr>
             break;
         }
         @using (Html.BeginForm("/ProcessGame", "Game", FormMethod.Get))
         {
             foreach (var answer in Model)
             {
-
-                <button value="@answer.Correct" onclick="checkHelp('@answer.Id')" id="@answer.Id" class="btn" name="startGame">
+                <button value="@answer.Correct" onclick="checkHelp('@answer.Id')" id="@answer.Id" class="btn button-answer" name="startGame">
                     @answer.Text
                 </button>
             }
@@ -70,5 +72,5 @@
 
 
 </body>
-
+</html>
 
