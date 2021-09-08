@@ -134,8 +134,10 @@
     </Compile>
     <Compile Include="Models\Answer.cs" />
     <Compile Include="Models\Question.cs" />
-    <Compile Include="Models\Repository\QuestionContext.cs" />
-    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Repository\IRepository.cs" />
+    <Compile Include="Models\QuestionContext.cs" />
+    <Compile Include="Models\Repository\SqlRepository.cs" />
+    <Compile Include="Models\Service\Service.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
