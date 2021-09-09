@@ -11,6 +11,7 @@ namespace GameMillionare_MVC_.Controllers
     public class GameController : Controller
     {
         // GET: Game
+
         public static int check = 100;
         public static int HelpButton = 0;
         public ActionResult Index()

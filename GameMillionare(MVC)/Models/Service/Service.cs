@@ -34,14 +34,26 @@ namespace GameMillionare_MVC_.Models
         }
         public static void RandomList()
         {
-            Random RND = new Random();
-            //for (int i = 0; i < ques.Count; i++)
-            //{
-            //    var tmp = ques[0];
-            //    ques.RemoveAt(0);
-            //    ques.Insert(RND.Next(ques.Count), tmp);
-            //}
+            Random RN = new Random();
+            for (int i = 0; i < 5; i++)
+            {
+                var random = RN.Next(1, ques.Count/4) * 4;
+
+                var first = ques[0];
+                var second = ques[1];
+                var third = ques[2];
+                var fourth = ques[3];
+                for (int j = 0; j < 4; j++)
+                {
+                    ques.RemoveAt(0);
+                }
+                ques.Insert(random,first);
+                ques.Insert(random+1,second);
+                ques.Insert(random+2,third);
+                ques.Insert(random+3,fourth);
+            }
         }
+   
 
     }
 }
